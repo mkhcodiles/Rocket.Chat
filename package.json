@@ -147,6 +147,7 @@
 		"lru-cache": "^2.6.5",
 		"mailparser": "^2.2.0",
 		"marked": "^0.3.16",
+		"meteor-node-stubs": "^0.3.3",
 		"mime-db": "^1.33.0",
 		"mime-type": "^3.0.5",
 		"mkdirp": "^0.5.1",
