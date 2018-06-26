@@ -14,6 +14,7 @@ RocketChat.models.Messages = new class extends RocketChat.models._Base {
 		this.tryEnsureIndex({ 'msg': 'text' });
 		this.tryEnsureIndex({ 'file._id': 1 }, { sparse: 1 });
 		this.tryEnsureIndex({ 'mentions.username': 1 }, { sparse: 1 });
+		this.tryEnsureIndex({ 'criticals.username': 1 }, { sparse: 1 });
 		this.tryEnsureIndex({ 'pinned': 1 }, { sparse: 1 });
 		this.tryEnsureIndex({ 'snippeted': 1 }, { sparse: 1 });
 		this.tryEnsureIndex({ 'location': '2dsphere' });
