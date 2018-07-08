@@ -1,14 +1,12 @@
-import _ from 'underscore';
-
 Meteor.methods({
   updateUserEmail(body) {
-    const x = RocketChat.models.Users.findOneById(body.user.uid);
+    const x = RocketChat.models.Users.findOneById(body.user._id);
     if (x) {
-      const userData = _.extend({ _id: body.user.uid }, body.user);
-
-      Meteor.runAsUser(this.userId, () => RocketChat.saveUser(body.user.uid, userData));
+      const userData = {};
+      userData._id = body.user._id;
+      userData.email = body.user.email;
+      RocketChat.setEmail(userData._id, userData.email);
     }
-
     return x;
   }
 });
