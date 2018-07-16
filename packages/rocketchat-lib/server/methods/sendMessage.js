@@ -42,7 +42,9 @@ Meteor.methods({
 		if (!room) {
 			return false;
 		}
-
+		if (!message.criticals) {
+			message.criticals = [];
+		}
 		const subscription = RocketChat.models.Subscriptions.findOneByRoomIdAndUserId(message.rid, Meteor.userId());
 		if (subscription && subscription.blocked || subscription.blocker) {
 			RocketChat.Notifications.notifyUser(Meteor.userId(), 'message', {
